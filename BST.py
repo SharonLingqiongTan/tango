@@ -15,11 +15,23 @@ class BalancedTree:
 		larger = nodes[len(nodes)/2 + 1:]
 		left = self.initiate(smaller)
 		right = self.initiate(larger)
-		root.left = left
-		root.right = right
+		if left:
+			left.parent = root
+		if right:
+			right.parent = root
+		root.repreLeft = left
+		root.repreRight = right
 		return root
 
-tree = BalancedTree([1,2,3,4,5,7,8])
+# tree = BalancedTree([1,2,3,4,5,7,8,10])
 # print tree.root.key
-# print tree.root.left.key
-# print tree.root.left.right
+# print tree.root.repreLeft.key
+# print tree.root.repreRight.key
+# print tree.root.repreLeft.repreLeft.key
+# print tree.root.repreLeft.repreRight.key
+# print tree.root.repreRight.repreLeft.key
+# print tree.root.repreRight.repreRight.key
+
+
+# print tree.root.repreLeft.parent.key
+# print tree.root.repreLeft.parent.prefer
